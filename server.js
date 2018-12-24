@@ -5,6 +5,7 @@ var SerialPort = require("serialport");
 
 //Default configuration
 var config = {
+  ip: '127.0.0.1',
   spm: { }, //Serial port manager
   cli: true, //Command line interface
   port: 5147,
@@ -41,7 +42,10 @@ for (var i = 0; i < args.length; i++) {
         process.exit(2);
       }
       break;
-      
+    case "-i":
+    case "--ip":
+      config.ip = parseInt(args[++i]);
+      break;
     case "-m":
     case "--mode":
       config.mode = args[++i];
@@ -160,6 +164,7 @@ function help() {
   console.log("Options:");
   console.log("  --help                 Print this message");
   console.log("  --list                 Print serial ports and exit");
+  console.log("  --ip, -i               Server IP");
   console.log("  --port, -p [num]       Socket port number, default: 5147");
   console.log("  --mode, -m [mode]      Server mode: http, tcp, udp, echo; default: http");
   console.log("  --prefix [path]        URL prefix: '/' for root or '/api/v1' etc.");
@@ -304,7 +309,7 @@ function startWebServer(config) {
   });
   
   //Start the HTTP server
-  var server = app.listen(config.port, function() {
+  var server = app.listen(config.port,config.ip, function() {
     console.log('HTTP on port ' + server.address().port);
   });
 
