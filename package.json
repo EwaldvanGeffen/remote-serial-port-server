@@ -20,14 +20,14 @@
     "remote-serial-port-client": "^0.4.0",
     "request": "^2.81.0",
     "semaphore": "^1.0.5",
-    "serialport": "^4.0.7",
+    "serialport": "^8.0.4",
     "ws": "^2.3.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/papnkukn/remote-serial-port-server"
+    "url": "https://github.com/solaz3/remote-serial-port-server"
   },
   "bugs": {
-    "url": "https://github.com/papnkukn/remote-serial-port-server/issues"
+    "url": "https://github.com/solaz3/remote-serial-port-server/issues"
   }
 }
